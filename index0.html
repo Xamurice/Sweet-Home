@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang 0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style0.css">
+</head>
+<body>
+  
+  <img src="assets/trang1/visual s1.png" alt="Visual" class="visual-window" id="visual">
+
+  <img src="assets/trang1/screen bg s1.png" alt="CRT Screen Background" class="crt-bg">
+  <img src="assets/trang1/scroll bar s1.png" alt="Scroll Bar" class="scroll-bar">
+
+  <img src="assets/trang1/mouth 1 s1.png" alt="Mouth 1" class="mouth" id="mouth" style="display: none;">
+
+  <div id="flashOverlay"></div>
+
+  <div id="errorWindow">Image not found</div>
+  
+
+  <div class="main-content">
+
+   
+    <img src="assets/trang1/visual s1.png" alt="Visual" class="visual-window" id="visualHidden" style="display: none;">
+
+    
+    <div class="poem-container" id="poemContainer" style="display: none;">
+      <img src="assets/trang1/poem window s1.png" alt="Poem Window" class="poem-window">
+      <div class="poem-typewriter">
+        <pre id="typedText"></pre><span class="cursor">|</span>
+      </div>
+    </div>
+
+   
+    <img src="assets/trang1/folder 1.png" alt="Folder 1" class="folder folder-1" id="folder1">
+
+   
+    <img src="assets/trang1/folder 2.png" alt="Folder 2" class="folder folder-2" id="folder2" style="display: none;">
+    <img src="assets/trang1/folder 3.png" alt="Folder 3" class="folder folder-3" id="folder3" style="display: none;">
+
+  </div>
+
+  
+  <img src="assets/trang1/crt outline s1.png" alt="CRT Outline" class="crt-overlay">
+
+  <script>
+  
+    const clickSound = document.getElementById('clickSound');
+
+   
+    function playClickSound() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+   
+    const clickables = [
+      document.getElementById('folder1'),
+      document.getElementById('folder2'),
+      document.getElementById('folder3'),
+      document.getElementById('visual'),
+      document.getElementById('visualHidden'),
+      document.getElementById('errorWindow'),
+      document.getElementById('poemContainer'),
+      document.getElementById('mouth')
+    ];
+
+    clickables.forEach(el => {
+      if (el) {
+        el.addEventListener('click', playClickSound);
+      }
+    });
+  </script>
+
+  <script src="script0.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.wrapper {
+  width: 1600px;
+  height: 900px;
+  margin: 0 auto;
+  position: relative;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+
+.bg-s2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.scroll-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1600px;
+  height: 900px;
+  z-index: 5;
+}
+
+.scroll-bar-img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.scroll-button-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1600px;
+  height: 900px;
+  image-rendering: pixelated;
+  z-index: 6;
+}
+
+
+.poem-window-img {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 1600px;
+  height: 900px;
+  z-index: 4;
+  image-rendering: pixelated;
+}
+
+.poem-window-img img {
+  width: 100%;
+  height: auto;
+}
+
+
+.love-window-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1600px;
+  height: 900px;
+  z-index: 5;
+  image-rendering: pixelated;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.love-window-img img {
+  width: 100%;
+  height: auto;
+}
+
+.love-window-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.love-label {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #ffcccc;
+  pointer-events: none;
+  text-shadow: 0 0 2px black;
+}
+
+
+.poem-text-container {
+  position: absolute;
+  top: 200px;
+  left: 1100px;
+  width: 270px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #c9d3de;
+  line-height: 2.5;
+  z-index: 6;
+  pointer-events: auto;
+  letter-spacing: 1.5px;
+}
+
+.poem-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fallIn 0.6s ease forwards;
+  font-family: inherit;
+  color: inherit;
+}
+
+.poem-letter.space {
+  display: inline-block;
+  width: 0.6em;
+}
+
+.hoverable:hover {
+  animation: glitch 0.3s infinite;
+  color: white;
+  text-shadow:
+    1px 0 red,
+    -1px 0 cyan,
+    0 1px magenta;
+}
+
+@keyframes fallIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch {
+  0%   { transform: translate(0px, 0px); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(2px, -1px); }
+  60%  { transform: translate(-1px, 2px); }
+  80%  { transform: translate(1px, -2px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+
+.visual-window {
+  position: absolute;
+  top: px;
+  left: 0px;
+  width: 1600px;
+  height: 900px;
+  z-index: 20;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.visual-window img {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.3s ease;
+  image-rendering: pixelated;
+}
+
+.visual-window:hover img {
+  filter: brightness(0.5);
+}
+
+
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 999;
+}
+.back-button {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ffcccc;
+  background: #111;
+  border: 2px solid #ffcccc;
+  border-radius: 12px;
+  box-shadow: inset 0 0 5px #ffcccc, 0 0 10px rgba(255, 0, 0, 0.4);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  image-rendering: pixelated;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 6px #ff8888,
+    0 0 12px #ff4444,
+    inset 0 0 8px #fff;
+}
+.scanline {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 97;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.06) 0px,
+    rgba(0, 255, 255, 0.06) 2px,
+    rgba(255, 0, 255, 0.06) 4px,
+    transparent 6px
+  );
+  animation:
+    flicker 2.5s infinite alternate,
+    drift 12s linear infinite,
+    rgbShift 6s infinite alternate;
+  mix-blend-mode: screen;
+  filter: blur(0.1px);
+}
+
+@keyframes rgbShift {
+  0%, 100% { filter: drop-shadow(0 0 0 red) drop-shadow(0 0 0 cyan); }
+  50%      { filter: drop-shadow(-1px 0 red) drop-shadow(1px 0 cyan); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.88; }
+  20%      { opacity: 1; }
+  40%      { opacity: 0.75; }
+  60%      { opacity: 0.95; }
+  80%      { opacity: 0.7; }
+}
+
+@keyframes drift {
+  0%   { background-position-y: 0px; }
+  100% { background-position-y: 300px; }
+}
+
+@keyframes strongGlitch {
+  0%   { transform: translate(0, 0) scale(1); filter: none; }
+  20%  { transform: translate(-4px, 2px) scale(1.02) hue-rotate(10deg); }
+  40%  { transform: translate(3px, -3px) scale(1.01) contrast(1.3); }
+  60%  { transform: translate(-2px, 4px) scale(1.03) hue-rotate(-15deg); }
+  80%  { transform: translate(4px, -1px) scale(1) brightness(1.2); }
+  100% { transform: translate(0, 0) scale(1); filter: none; }
+}

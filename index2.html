@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>III. Rot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+   <div class="scanline"></div>
+  <div class="wrapper">
+
+    
+    <img src="assets/trang3/screen bg s3.png" class="bg" alt="Screen Background">
+
+   
+    <img src="assets/trang3/scroll bar s3.png" class="scrollbar" alt="Scrollbar">
+    <img src="assets/trang3/scroll button s3.png" class="scroll-button" alt="Scroll Button">
+
+    
+    <img src="assets/trang3/smile window s3.png" class="smile-window" alt="Smile Window">
+    <img src="assets/trang3/mouth 2 s3.png" class="mouth2" alt="Mouth 2">
+    <img src="assets/trang3/mouth 1 s3.png" class="mouth1" alt="Mouth 1">
+
+    
+    <img src="assets/trang3/question window s3.png" class="question-window" alt="Question Window">
+    <div class="question-text" id="questionText">
+      <span id="typedText"></span><span id="cursor" class="cursor">|</span>
+    </div>
+
+    
+    <img src="assets/trang3/yes button s3.png" class="yes-button" alt="Yes Button">
+    <img src="assets/trang3/no button s3.png" class="no-button" alt="No Button">
+
+   
+    <img src="assets/trang3/visual 1 s3.png" class="visual1" alt="Visual 1">
+    <img src="assets/trang3/visual 2 s3.png" class="visual2" alt="Visual 2">
+
+    
+    <img src="assets/trang3/crt outline s3.png" class="crt-outline" alt="CRT Outline">
+  </div>
+
+  
+  <div id="overlayScreen" class="overlay-screen">
+    <div class="overlay-text">No one can replace her</div>
+  </div>
+
+ 
+  <button id="backButton" class="pixel-button">← BACK</button>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const text = "for my girl...error666";
+      const typedText = document.getElementById("typedText");
+      const cursor = document.getElementById("cursor");
+
+      if (!typedText || !cursor) {
+        console.error("Không tìm thấy phần tử typedText hoặc cursor.");
+        return;
+      }
+
+      let index = 0;
+
+      function typeChar() {
+        if (index < text.length) {
+          typedText.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeChar, 80);
+        } else {
+          cursor.style.display = "none";
+        }
+      }
+
+      typeChar();
+    });
+  </script>
+
+
+  <script src="script2.js"></script>
+</body>
+</html>

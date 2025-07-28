@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trang 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="scanline"></div>
+
+  
+    <button class="back-button" id="backBtn" onclick="window.location.href='index0.html'">Back</button>
+
+    
+    <img src="assets/trang2/screen bg s2.png" alt="background" class="bg-s2" />
+
+    
+    <div class="scroll-bar" id="scrollBar">
+      <img src="assets/trang2/scroll bar s2.png" alt="scroll bar" class="scroll-bar-img" />
+      <img src="assets/trang2/scroll button s2.png" alt="scroll button" class="scroll-button-img" id="scrollButton" />
+    </div>
+
+    
+    <div class="poem-window-img">
+      <img src="assets/trang2/poem window s2.png" alt="poem window" />
+    </div>
+
+   
+    <div class="poem-text-container" id="poemContainer"></div>
+
+    
+    <div class="visual-window" id="visualWindow">
+      <img src="assets/trang2/visual window s2.png" alt="visual window" />
+    </div>
+
+    
+    <div class="love-window-img" id="loveWindow">
+      <img src="assets/trang2/window love... s2.png" alt="window love" />
+      <div class="love-label">Love...</div>
+    </div>
+
+    
+    <img src="assets/trang2/crt s2.png" alt="CRT overlay" class="crt-overlay" />
+  </div>
+
+  
+  <audio id="bgm" loop>
+    <source src="sounds/In Dreamland background music.mp3" type="audio/mpeg">
+  </audio>
+
+  
+  <audio id="clickSound" src="sounds/hitHurt (1).wav" preload="auto"></audio>
+
+  
+  <script>
+    const clickSound = document.getElementById("clickSound");
+
+    function playClick() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    
+    const clickableIds = [
+      "backBtn",
+      "visualWindow",
+      "loveWindow",
+      "scrollButton"
+    ];
+
+    clickableIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("click", playClick);
+      }
+    });
+
+    
+    const bgm = document.getElementById("bgm");
+    document.body.addEventListener("click", () => {
+      if (bgm.paused) {
+        bgm.currentTime = 120;
+        bgm.play();
+      }
+    }, { once: true });
+  </script>
+
+  <script src="script1.js"></script>
+</body>
+</html>

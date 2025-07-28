@@ -1,0 +1,227 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.container {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  margin: auto;
+  image-rendering: pixelated;
+}
+
+.bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+.crt-outline {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1600px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+
+.layer {
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 10;
+}
+
+.box1 {
+  top: 200px;
+  left: -50px;
+  width: 235px;
+  height: 515px;
+}
+
+.scrollbar {
+  top: 0px;
+  left: -170px;
+  width: 1600px;
+  height: 900px;
+  z-index: 1;
+}
+
+.smile {
+  top: 250px;
+  left: 800px;
+  width: 370px;
+  height: 240px;
+}
+
+.visual {
+  top: 150px;
+  left: 560px;
+  width: 715px;
+  height: 615px;
+}
+
+.poem {
+  top: 190px;
+  left: 190px;
+  width: 365px;
+  height: 545px;
+}
+
+@font-face {
+  font-family: 'PixelFont';
+  src: url('fonts/PressStart2P.ttf');
+}
+
+
+.poem-window {
+  position: absolute;
+  top: 300px;
+  left: 230px;
+  width: 280px;
+  height: 545px;
+  z-index: 20;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #ffcccc;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.poem-line {
+  position: relative;
+  padding: 20px;
+  cursor: pointer;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+#typedText {
+  display: inline-block;
+}
+
+.underline {
+  position: absolute;
+  bottom: 4px;
+  left: 20px;
+  height: 1px;
+  background: #ffcccc;
+  width: 0;
+  transition: width 0.2s ease-out;
+}
+
+.poem-glitch-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.glitch-char {
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  animation: glitch-flicker 0.2s infinite alternate;
+}
+
+@keyframes glitch-flicker {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
+  50%  { transform: translate(-2px, 2px) rotate(3deg); opacity: 1; }
+  100% { transform: translate(2px, -1px) rotate(-3deg); opacity: 0.7; }
+}
+
+.box1-text {
+  position: absolute;
+  top: 200px;
+  left: 160px;
+  width: 235px;
+  height: 515px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 20px;
+  line-height: 8;
+  color: #ffcccc;
+  text-align: center;
+  pointer-events: auto; 
+  image-rendering: pixelated;
+  z-index: 50;
+}
+
+.box-line {
+  margin: 8px 0;
+}
+
+
+#heartContainer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 500;
+}
+
+.heart {
+  position: absolute;
+  font-size: 12px;
+  color: #ff7cbf;
+  animation: floatUp 2s ease-out forwards;
+  font-family: 'Press Start 2P', monospace;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) scale(1.3) rotate(10deg);
+    opacity: 0;
+  }
+}
+.box-line {
+  margin: 8px 0;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.box-line:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 4px #ffcccc, 0 0 6px #ff7cbf;
+  z-index: 99;
+}
+.visual {
+  top: 150px;
+  left: 560px;
+  width: 715px;
+  height: 615px;
+  z-index: 10;
+  transition: filter 0.2s ease;
+  cursor: pointer;
+}
+
+.visual:hover {
+  filter: brightness(60%);
+}
+

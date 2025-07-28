@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Screen iFrame + Toggle Sound</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .sound-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12px;
+      background: #222;
+      color: #fff;
+      border: 4px solid #888;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow:
+        0 0 0 4px #000,
+        4px 4px 0 0 #444;
+      transition: all 0.15s ease;
+    }
+
+    .sound-button:hover {
+      background: #444;
+      box-shadow:
+        0 0 0 4px #000,
+        2px 2px 0 0 #666;
+    }
+
+    .sound-button:active {
+      transform: translate(2px, 2px);
+      box-shadow:
+        0 0 0 4px #000,
+        1px 1px 0 0 #333;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="index0.html" allowfullscreen></iframe>
+
+  <!-- 🔊 Nút âm thanh -->
+  <button class="sound-button" onclick="toggleSound()" id="soundBtn">Play</button>
+  <audio id="soundEffect" src="sounds/endless.mp3" preload="auto" loop></audio>
+
+  <script>
+    const audio = document.getElementById('soundEffect');
+    const btn = document.getElementById('soundBtn');
+
+    function toggleSound() {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "Pause";
+      } else {
+        audio.pause();
+        btn.textContent = "Play";
+      }
+    }
+  </script>
+</body>
+</html>
